@@ -1,0 +1,40 @@
+baseline             CV ROC-AUC=0.5000 ±0.0000
+logistic_regression  CV ROC-AUC=0.4978 ±0.0221
+random_forest        CV ROC-AUC=0.4985 ±0.0124
+gradient_boosting    CV ROC-AUC=0.5002 ±0.0155
+Warning: sklearn.cluster.FeatureAgglomeration is not available and will not be used by TPOT.
+Warning: sklearn.decomposition.FastICA is not available and will not be used by TPOT.
+Warning: sklearn.decomposition.PCA is not available and will not be used by TPOT.
+Warning: sklearn.ensemble.ExtraTreesClassifier is not available and will not be used by TPOT.
+Warning: sklearn.ensemble.GradientBoostingClassifier is not available and will not be used by TPOT.
+Warning: sklearn.ensemble.RandomForestClassifier is not available and will not be used by TPOT.
+Warning: sklearn.feature_selection.RFE is not available and will not be used by TPOT.
+Warning: sklearn.feature_selection.SelectFromModel is not available and will not be used by TPOT.
+Warning: sklearn.feature_selection.SelectFwe is not available and will not be used by TPOT.
+Warning: sklearn.feature_selection.SelectPercentile is not available and will not be used by TPOT.
+Warning: sklearn.feature_selection.VarianceThreshold is not available and will not be used by TPOT.
+Warning: sklearn.kernel_approximation.Nystroem is not available and will not be used by TPOT.
+Warning: sklearn.kernel_approximation.RBFSampler is not available and will not be used by TPOT.
+Warning: sklearn.linear_model.LogisticRegression is not available and will not be used by TPOT.
+Warning: sklearn.linear_model.SGDClassifier is not available and will not be used by TPOT.
+Warning: sklearn.naive_bayes.BernoulliNB is not available and will not be used by TPOT.
+Warning: sklearn.naive_bayes.GaussianNB is not available and will not be used by TPOT.
+Warning: sklearn.naive_bayes.MultinomialNB is not available and will not be used by TPOT.
+Warning: sklearn.neighbors.KNeighborsClassifier is not available and will not be used by TPOT.
+Warning: sklearn.neural_network.MLPClassifier is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.Binarizer is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.MaxAbsScaler is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.MinMaxScaler is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.Normalizer is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.PolynomialFeatures is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.RobustScaler is not available and will not be used by TPOT.
+Warning: sklearn.preprocessing.StandardScaler is not available and will not be used by TPOT.
+Warning: sklearn.svm.LinearSVC is not available and will not be used by TPOT.
+Warning: sklearn.tree.DecisionTreeClassifier is not available and will not be used by TPOT.
+Warning: tpot.builtins.OneHotEncoder is not available and will not be used by TPOT.
+Warning: tpot.builtins.ZeroCount is not available and will not be used by TPOT.
+Warning: xgboost.XGBClassifier is not available and will not be used by TPOT.
+TPOT unavailable: list index out of range
+shap skipped: input_features is not equal to feature_names_in_
+best=gradient_boosting ROC-AUC: baseline 0.5 -> 0.5075
+Version 0.12.2 of tpot is outdated. Version 1.1.0 was released Thursday July 03, 2025.

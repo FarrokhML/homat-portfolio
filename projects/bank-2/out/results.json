@@ -1,0 +1,205 @@
+{
+  "task": "classification",
+  "target": "Churn",
+  "primary_metric": "ROC-AUC",
+  "rows_loaded": 4704,
+  "rows_used": 4704,
+  "train_rows": 3763,
+  "test_rows": 941,
+  "split": "random stratified 80/20",
+  "features_used": {
+    "numeric": [
+      "SeniorCitizen",
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "categorical": [
+      "Partner",
+      "Dependents",
+      "PhoneService",
+      "InternetService",
+      "Contract",
+      "PaymentMethod"
+    ]
+  },
+  "dropped": {
+    "customerID": "شناسه"
+  },
+  "leakage_suspects": {},
+  "notes": [],
+  "classes": {
+    "0": 2386,
+    "1": 2318
+  },
+  "models": {
+    "baseline": {
+      "cv_mean": 0.5,
+      "cv_std": 0.0,
+      "test": {
+        "ROC-AUC": 0.5,
+        "PR-AUC": 0.4931,
+        "ROC-AUC_CI95": [
+          0.5,
+          0.5
+        ],
+        "positive_rate": 0.4931,
+        "top20_capture_pct": 20.9,
+        "top20_precision_pct": 51.6
+      }
+    },
+    "logistic_regression": {
+      "cv_mean": 0.4978,
+      "cv_std": 0.0221,
+      "test": {
+        "ROC-AUC": 0.498,
+        "PR-AUC": 0.4809,
+        "ROC-AUC_CI95": [
+          0.4624,
+          0.5304
+        ],
+        "positive_rate": 0.4931,
+        "top20_capture_pct": 19.2,
+        "top20_precision_pct": 47.3
+      }
+    },
+    "random_forest": {
+      "cv_mean": 0.4985,
+      "cv_std": 0.0124,
+      "test": {
+        "ROC-AUC": 0.4721,
+        "PR-AUC": 0.4789,
+        "ROC-AUC_CI95": [
+          0.4352,
+          0.5072
+        ],
+        "positive_rate": 0.4931,
+        "top20_capture_pct": 18.8,
+        "top20_precision_pct": 46.3
+      }
+    },
+    "gradient_boosting": {
+      "cv_mean": 0.5002,
+      "cv_std": 0.0155,
+      "test": {
+        "ROC-AUC": 0.5075,
+        "PR-AUC": 0.4814,
+        "ROC-AUC_CI95": [
+          0.4706,
+          0.5437
+        ],
+        "positive_rate": 0.4931,
+        "threshold": 0.05,
+        "precision": 0.4931,
+        "recall": 1.0,
+        "F1": 0.6605,
+        "top20_capture_pct": 19.8,
+        "top20_precision_pct": 48.9
+      }
+    }
+  },
+  "best_model": "gradient_boosting",
+  "baseline_score": 0.5,
+  "best_score": 0.5075,
+  "improvement_pct": 1.5,
+  "importance": [
+    {
+      "feature": "tenure",
+      "importance": 0.0066
+    },
+    {
+      "feature": "Contract",
+      "importance": 0.0064
+    },
+    {
+      "feature": "Dependents",
+      "importance": 0.0049
+    },
+    {
+      "feature": "MonthlyCharges",
+      "importance": 0.0043
+    },
+    {
+      "feature": "PaymentMethod",
+      "importance": 0.0009
+    },
+    {
+      "feature": "SeniorCitizen",
+      "importance": 0.0003
+    },
+    {
+      "feature": "TotalCharges",
+      "importance": -0.0005
+    },
+    {
+      "feature": "PhoneService",
+      "importance": -0.0007
+    },
+    {
+      "feature": "Partner",
+      "importance": -0.0012
+    },
+    {
+      "feature": "InternetService",
+      "importance": -0.0054
+    }
+  ],
+  "anomaly_share": 0.1001,
+  "drift": {
+    "drifted_columns": 0,
+    "share": 0.0
+  },
+  "text_profile": {
+    "column": "customerID",
+    "docs": 400,
+    "tokens": 400,
+    "noun_share_pct": 58.8,
+    "entities": {
+      "GPE": 11,
+      "ORG": 11,
+      "NORP": 4,
+      "PERSON": 3,
+      "DATE": 1
+    }
+  },
+  "automl": {
+    "engine": "scikit-learn HalvingRandomSearchCV",
+    "candidates": 24,
+    "score": 0.4913,
+    "params": {
+      "min_samples_leaf": 50,
+      "max_leaf_nodes": 63,
+      "learning_rate": 0.1,
+      "l2_regularization": 0.0
+    }
+  },
+  "figures": {
+    "models": "figures/models.png",
+    "importance": "figures/importance.png",
+    "gains": "figures/gains.png"
+  },
+  "interactive_chart": "importance.html",
+  "model_file": "model.joblib",
+  "stack": {
+    "libraries": {
+      "pandas": "3.0.5",
+      "scikit-learn": "1.9.0",
+      "matplotlib": "3.11.2",
+      "pyOD": "3.6.6",
+      "feature-engine": "1.9.4",
+      "Evidently": "0.7.23",
+      "plotly": "5.24.1",
+      "spaCy": "3.8.16",
+      "Pydantic": "2.13.5"
+    },
+    "model": "gradient_boosting",
+    "ml_area": "classification",
+    "python": "3.14.4"
+  },
+  "seconds": 36.9,
+  "verdict": {
+    "publishable": false,
+    "label": "ضعیف",
+    "why": "مدل عملاً از حدس بهتر نیست؛ مطالعه‌ی موردی نمی‌شود."
+  }
+}

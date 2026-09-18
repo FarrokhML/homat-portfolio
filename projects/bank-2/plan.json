@@ -1,0 +1,200 @@
+{
+  "radar_id": 2,
+  "industry": "بانک و مؤسسه‌ی مالی",
+  "plan": {
+    "target": "Churn",
+    "task": "classification",
+    "features": [
+      "SeniorCitizen",
+      "Partner",
+      "Dependents",
+      "tenure",
+      "PhoneService",
+      "InternetService",
+      "Contract",
+      "PaymentMethod",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "metric": "ROC-AUC",
+    "baseline": "یک مدل Logistic Regression ساده روی ویژگی‌های عددی و دسته‌بندی‌شده (با One-Hot Encoding) به عنوان سریع‌ترین نقطه شروع برای ارزیابی توان تفکیک مدل.",
+    "approach": "ابتدا داده‌های گم‌شده در ستون TotalCharges را پاک‌سازی و مدیریت می‌کنیم. ویژگی‌های متنی مانند Contract و PaymentMethod را انکود کرده و ویژگی‌های عددی مانند tenure و MonthlyCharges را نرمال‌سازی می‌کنیم. سپس یک مدل طبقه‌بندی مانند XGBoost یا Random Forest آموزش می‌دهیم تا احتمال ریزش (Churn) را پیش‌بینی کند و با تنظیم آستانه تصمیم‌گیری (Threshold Tuning)، نرخ بازیابی (Recall) را برای شناسایی حداکثری مشتریان در آستانه ریزش بهینه‌سازی می‌کنیم.",
+    "milestones": [
+      "پیش‌پردازش داده‌ها شامل مدیریت مقادیر خالی در TotalCharges و تبدیل متغیرهای کتگوریکال به عددی.",
+      "آموزش مدل پایه Logistic Regression و محاسبه معیارهای اولیه به ویژه Recall و ROC-AUC.",
+      "آموزش مدل‌های پیچیده‌تر مانند Random Forest و XGBoost و بهینه‌سازی هایپرپارامترها.",
+      "تنظیم آستانه تصمیم‌گیری مدل برای دستیابی به نرخ شناسایی (Recall) بالای ۷۵ درصد."
+    ],
+    "data_gap": "داده‌های تراکنشی ریز (مانند تعداد و مبلغ تراکنش‌های ماهانه اخیر)، روند تغییرات موجودی حساب در بازه‌های زمانی ۳۰ و ۹۰ روزه، و نوع حساب‌های بانکی. بدون این داده‌ها، شناسایی 'افت تدریجی موجودی' غیرممکن است.",
+    "honest_note": "این دیتاست در واقع دیتاست معروف ریزش مشتریان مخابرات (Telecom Churn) است که به اشتباه یا با تغییر نام ستون‌ها به عنوان دیتای بانکی معرفی شده است. ستون‌هایی مثل PhoneService و InternetService هیچ ربطی به بانکداری ندارند و جای خالی داده‌های حیاتی بانکی مانند مانده حساب، نرخ سود و گردش مالی به شدت حس می‌شود. با این حال، به صورت فرمال می‌توان یک مدل پیش‌بینی ریزش عمومی روی آن پیاده‌سازی کرد.",
+    "by_model": true
+  },
+  "profile": {
+    "rows": 4704,
+    "delimiter": ",",
+    "columns": [
+      {
+        "name": "customerID",
+        "kind": "text",
+        "missing_pct": 0.0,
+        "unique": 2000,
+        "sample": [
+          "CUST4701",
+          "CUST1503",
+          "CUST5063"
+        ]
+      },
+      {
+        "name": "SeniorCitizen",
+        "kind": "binary",
+        "missing_pct": 0.0,
+        "unique": 2,
+        "sample": [
+          "1",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "Partner",
+        "kind": "binary",
+        "missing_pct": 0.0,
+        "unique": 2,
+        "sample": [
+          "No",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "Dependents",
+        "kind": "binary",
+        "missing_pct": 0.0,
+        "unique": 2,
+        "sample": [
+          "Yes",
+          "Yes",
+          "No"
+        ]
+      },
+      {
+        "name": "tenure",
+        "kind": "integer",
+        "missing_pct": 0.0,
+        "unique": 72,
+        "sample": [
+          "46",
+          "43",
+          "41"
+        ],
+        "min": 1.0,
+        "max": 72.0,
+        "mean": 36.423
+      },
+      {
+        "name": "PhoneService",
+        "kind": "binary",
+        "missing_pct": 0.0,
+        "unique": 2,
+        "sample": [
+          "Yes",
+          "No",
+          "Yes"
+        ]
+      },
+      {
+        "name": "InternetService",
+        "kind": "category",
+        "missing_pct": 0.0,
+        "unique": 3,
+        "sample": [
+          "No",
+          "DSL",
+          "No"
+        ]
+      },
+      {
+        "name": "Contract",
+        "kind": "category",
+        "missing_pct": 0.0,
+        "unique": 3,
+        "sample": [
+          "One year",
+          "Two year",
+          "Two year"
+        ]
+      },
+      {
+        "name": "PaymentMethod",
+        "kind": "category",
+        "missing_pct": 0.0,
+        "unique": 4,
+        "sample": [
+          "Bank transfer",
+          "Electronic check",
+          "Electronic check"
+        ]
+      },
+      {
+        "name": "MonthlyCharges",
+        "kind": "float",
+        "missing_pct": 0.0,
+        "unique": 1805,
+        "sample": [
+          "83.65",
+          "79.9",
+          "104.98"
+        ],
+        "min": 20.06,
+        "max": 119.99,
+        "mean": 69.59
+      },
+      {
+        "name": "TotalCharges",
+        "kind": "float",
+        "missing_pct": 0.0,
+        "unique": 1989,
+        "sample": [
+          "3847.9",
+          "3435.7",
+          "4304.18"
+        ],
+        "min": 20.13,
+        "max": 8279.31,
+        "mean": 2506.093
+      },
+      {
+        "name": "Churn",
+        "kind": "binary",
+        "missing_pct": 0.0,
+        "unique": 2,
+        "sample": [
+          "No",
+          "Yes",
+          "Yes"
+        ]
+      }
+    ],
+    "target_candidates": [
+      {
+        "column": "Churn",
+        "task": "classification",
+        "why": "ریزش مشتری",
+        "kind": "binary"
+      },
+      {
+        "column": "MonthlyCharges",
+        "task": "regression",
+        "why": "قیمت",
+        "kind": "float"
+      },
+      {
+        "column": "TotalCharges",
+        "task": "regression",
+        "why": "قیمت",
+        "kind": "float"
+      }
+    ],
+    "readable": true
+  }
+}
