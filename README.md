@@ -13,6 +13,6 @@ python pipeline.py
 
 ## پروژه‌ها
 
-- [بانک و مؤسسه‌ی مالی — پنهان ماندن نرخ واقعی ریزش مشتریان خرد و از دست رفتن سپرده‌ها](projects/bank-2/) — [گزارش](projects/bank-2/REPORT.md)
+— هنوز خالی
 
 homatai.com · github.com/FarrokhML/homat-portfolio

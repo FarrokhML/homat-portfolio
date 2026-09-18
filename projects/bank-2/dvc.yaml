@@ -1,9 +1,0 @@
-stages:
-  lab:
-    cmd: python pipeline.py
-    deps:
-      - data\tayaee-bank-customer-churn-prediction-full.csv
-      - pipeline.py
-      - lab_config.json
-    outs:
-      - out
