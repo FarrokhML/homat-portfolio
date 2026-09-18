@@ -13,6 +13,6 @@ python pipeline.py
 
 ## پروژه‌ها
 
-- [تست انتشار](projects/selftest-0/) — [گزارش](projects/selftest-0/REPORT.md)
+— هنوز خالی
 
 homatai.com · github.com/FarrokhML/homat-portfolio
